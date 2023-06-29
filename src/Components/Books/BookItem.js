@@ -5,12 +5,12 @@ import { useContext } from 'react';
 import CartContext from '../../store/cart-context';
 
 const BookItem =(props)=>{
-    const cartCTX = useContext(CartContext);
+    const cartCtx = useContext(CartContext);
 
     const price = `$${props.price.toFixed(2)}`;
 
     const addToCartHandler =(amount)=>{
-        cartCTX.addItem({
+        cartCtx.addItem({
             id: props.id,
             name: props.name,
             amount: amount,
