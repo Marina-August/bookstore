@@ -1,7 +1,7 @@
 .form {
     margin: 1rem 0;
     height: 19rem;
-    overflow: auto;
+    /* overflow: auto; */
   }
   
   .control {
@@ -56,9 +56,27 @@
   
   .invalid label {
     color: #ca3e51;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    display: block;
   }
   
   .invalid input {
     border-color: #aa0b20;
     background-color: #ffeff1;
+    font: inherit;
+    border: 1px solid;
+    border-radius: 4px;
+    width: 20rem;
+    max-width: 100%;
   }
+
+  .invalid{
+    color: #ca3e51;
+  }
+
+  button:disabled,
+  button:disabled:hover,
+  button:disabled:active {
+  cursor: not-allowed;
+ }
