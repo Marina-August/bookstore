@@ -33,7 +33,7 @@
   
   .actions button:hover,
   .actions button:active {
-    background-color: #3ea68a;
+    background-color:  #216654;
     border-color: #3ea68a;
     color: white;
   }
@@ -45,4 +45,33 @@
   .actions .button {
     background-color: #3ea68a;
     color: white;
+  }
+
+  .main{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 37rem;
+    overflow-y: scroll;
+  }
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: none;
+    scrollbar-color: #6bdabd #e8eeec;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 13px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #e8eeec;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #85b9ab;
+    border-radius: 7px;
+    border: 2px ridge #ffffff;
   }
