@@ -1,10 +1,11 @@
 import classes from './Checkout.module.css';
 import useInput from '../../hooks/use-input';
 import CartContext from '../../store/cart-context';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 const Checkout = (props) => {
     const cartCtx = useContext(CartContext);
+    const [orderIsSent, setOrderIsSent] = useState(false);
 
     const {value: enteredName,
         hasError: nameInputHasError, 
@@ -70,7 +71,9 @@ const Checkout = (props) => {
       resetStreetInput();
       resetPostInput();
       resetCityInput();
+      props.onSent();
     };
+    
   
     return (
       <form className={classes.form} onSubmit={confirmHandler}>

@@ -8,6 +8,8 @@ import Checkout from './Checkout';
 const url = 'http://localhost:5000/'// 'https://movies-database-server.onrender.com/'
 const Cart = (props)=>{
     const [isCheckout, setIsCheckout] = useState(false);
+    const [orderIsSent, setOrderIsSent] = useState(false);
+
 
     const cartCtx = useContext(CartContext);
 
@@ -34,24 +36,15 @@ const Cart = (props)=>{
         setIsCheckout((prevIsCheckout) => !prevIsCheckout);
     } 
     
-    // const submitOrderHandler =(userData)=>{
-    //     fetch (url + 'add-order', {
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //         user:userData,
-    //         orderedItems:cartCtx.items
-    //     }),
-    //     headers: {
-    //         "Content-Type": "application/json; charset=utf-8",
-    //     },
-    //   });
 
-    // }
+    const setOrderHandler = ()=>{
+        setOrderIsSent(true);
+    }
 
     return(
        
         <Modal>
-            <div className={classes.main}>   
+           { !orderIsSent && <div className={classes.main}>   
             {cartItems}
             <div className={classes.total}>
                 <span>Total Amount $</span>
@@ -62,8 +55,18 @@ const Cart = (props)=>{
                 {hasItems && <button className={classes.button} onClick={orderHandler}>Order</button>}
             </div>
             }
-           { isCheckout && <Checkout onCancel ={orderHandler} />}
+           { isCheckout && <Checkout onCancel ={orderHandler} onSent = {setOrderHandler}/>}
            </div>
+           }
+           {orderIsSent && 
+            <div className={classes.main}>
+              <h3 className={classes.thanks}>Thank you for your order!</h3>
+              <div  className={classes.actions}>
+                <button className={classes['button--alt']} onClick={props.onHideCart}>Close</button>
+              </div>
+              
+            </div>
+            }
         </Modal>
         
         
