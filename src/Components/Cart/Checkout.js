@@ -1,8 +1,10 @@
 import classes from './Checkout.module.css';
 import useInput from '../../hooks/use-input';
-import { useState } from 'react';
+import CartContext from '../../store/cart-context';
+import { useContext } from 'react';
 
 const Checkout = (props) => {
+    const cartCtx = useContext(CartContext);
 
     const {value: enteredName,
         hasError: nameInputHasError, 
@@ -62,8 +64,8 @@ const Checkout = (props) => {
       });
       
       const data = await response.json();
-      console.log(data);
-    
+
+      cartCtx.clearCart();
       resetNameInput();
       resetStreetInput();
       resetPostInput();

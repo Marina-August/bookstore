@@ -5,6 +5,7 @@ import CartContext from '../../store/cart-context';
 import CartItem from './CartItem';
 import Checkout from './Checkout';
 
+const url = 'http://localhost:5000/'// 'https://movies-database-server.onrender.com/'
 const Cart = (props)=>{
     const [isCheckout, setIsCheckout] = useState(false);
 
@@ -31,7 +32,21 @@ const Cart = (props)=>{
 
     const orderHandler = ()=>{
         setIsCheckout((prevIsCheckout) => !prevIsCheckout);
-    }    
+    } 
+    
+    // const submitOrderHandler =(userData)=>{
+    //     fetch (url + 'add-order', {
+    //     method: 'POST',
+    //     body: JSON.stringify({
+    //         user:userData,
+    //         orderedItems:cartCtx.items
+    //     }),
+    //     headers: {
+    //         "Content-Type": "application/json; charset=utf-8",
+    //     },
+    //   });
+
+    // }
 
     return(
        
@@ -47,7 +62,7 @@ const Cart = (props)=>{
                 {hasItems && <button className={classes.button} onClick={orderHandler}>Order</button>}
             </div>
             }
-           { isCheckout && <Checkout onCancel ={orderHandler}/>}
+           { isCheckout && <Checkout onCancel ={orderHandler} />}
            </div>
         </Modal>
         
