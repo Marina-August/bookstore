@@ -17,9 +17,9 @@ const App = ()=> {
 
   return (
     <CartProvider>
-    <Header onShowCart = {showCartHandler}/>
-    <Books/>
-    {cartIsShown && <Cart onHideCart = {hideCartHandler}/>}
+      <Header onShowCart = {showCartHandler}/>
+      <Books/>
+      {cartIsShown && <Cart onHideCart = {hideCartHandler}/>}
     </CartProvider>
     
   );
