@@ -34,8 +34,7 @@ const Cart = (props)=>{
 
     const orderHandler = ()=>{
         setIsCheckout((prevIsCheckout) => !prevIsCheckout);
-    } 
-    
+    }
 
     const setOrderHandler = ()=>{
         setOrderIsSent(true);
@@ -68,11 +67,8 @@ const Cart = (props)=>{
             </div>
             }
         </Modal>
-        
-        
 
     )
 
 }
-
 export default Cart;
